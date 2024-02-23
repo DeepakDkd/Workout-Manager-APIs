@@ -9,13 +9,15 @@ dotenv.config();
 //express app
 const app = express();
 
-app.use(express.json());
 
+// middleware
+app.use(express.json());
 
 app.use(cors({ origin: "*" })); //enable CORS for all requests
 
-//routes
-app.use("/api/workouts", router);
+app.use("/api/workouts", router);//routes
+
+
 
 //connect to db
 mongoose
