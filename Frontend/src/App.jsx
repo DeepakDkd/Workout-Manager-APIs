@@ -1,19 +1,15 @@
-import { useState } from 'react'
-import Header from "./Components/Header"
-import Footer from './Components/Footer'
+import { useState } from "react";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import {Outlet} from "react-router-dom"
 function App() {
-  const [arr, setArr] = useState(null)
-  // const data = fetch("http://localhost:8089/api/workouts/")
-    // .then((response) => response.json())
-    // .then((response) => setArr(response))
-  // console.log(arr)
   return (
     <>
-    <Header/>
-    <Outlet/>
-    <Footer/>
+      <Header />
+      <Outlet />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

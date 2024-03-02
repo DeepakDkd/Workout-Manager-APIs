@@ -6,7 +6,7 @@ function WorkoutDetail({workout}) {
         <h2>{workout.title}</h2>
         <p><strong>Reps :</strong> {workout.reps}</p>
         <p><strong>Loads :</strong> {workout.reps}</p>
-        <p>{workout.createdAt}</p>
+        <p>{workout.createdAt.split('T')[0]}</p>
     </div>
   )
 }
