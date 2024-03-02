@@ -5,34 +5,59 @@ function WorkoutForm() {
     const [reps , setReps] = useState(0)
     const [loads , setLoads] = useState(0)
     const [error , setError] = useState('')
+
+    const handleSubmit = async(e)=>{
+        e.preventDefault();
+        const workout = {title , reps , loads}
+
+        const response = await fetch('http://localhost:8089/api/workouts' , {
+            method : "POST",
+            body : JSON.stringify(workout),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+
+        const json = await response.json()
+
+        if(!response.ok){
+            setError(json.error)
+        }
+        if(response.ok){
+            setTitle("")
+            setReps(0)
+            setLoads(0)
+            setError("")
+        }
+
+    }
   return (
-    <form className="workout-form">
+    <form className="workout-form" onSubmit={handleSubmit}>
         <h2>Add a workout</h2> 
         <label>
-            Title:
+            <b>Workout Title:</b>
         </label>
             <input type='text' value={title} onChange={e => setTitle(e.target.value)}
-            /><br/>
+            />
         
         <label>
-            Reps:
+          <b>  Load (in):</b>
+        </label>
+        <input  
+            type='number'  
+            value={loads}
+            onChange={e => setLoads(e.target.valueAsNumber)}
+        />
+        <label>
+            <b>Reps:</b>
         </label>
         <input 
             type='number'  
             value={reps}  
             onChange={e => setReps(e.target.valueAsNumber)}
         /><br/>
-        <label>
-            Sets:
-        </label>
-        <p>How many times did you do those reps?</p>
-        <input  
-            type='number'  
-            value={loads}
-            onChange={e => setLoads(e.target.valueAsNumber)}
-        /><br/>
-        <button disabled={!validateInput()} onClick={handleSubmit}>Submit</button><br   />
-        { error && <p>{error}</p>}
+        <button>Submit</button>
+        { error && <p className='error'>{error}</p>}
     </form>
   )
 }

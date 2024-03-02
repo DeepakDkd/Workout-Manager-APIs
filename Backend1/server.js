@@ -13,7 +13,11 @@ const app = express();
 // middleware
 app.use(express.json());
 
-app.use(cors({ origin: "*" })); //enable CORS for all requests
+app.use(cors({ origin: "*",
+credentials: true,
+optionsSuccessStatus: 200,
+preflightContinue: false,
+methods: "GET,HEAD,PUT,PATCH,POST,DELETE",})); //enable CORS for all requests
 
 app.use("/api/workouts", router);//routes
 

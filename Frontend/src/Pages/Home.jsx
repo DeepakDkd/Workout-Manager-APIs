@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import WorkoutDetail from "../Components/WorkoutDetail";
+import WorkoutForm from "../Components/WorkoutForm";
 
 function Home() {
   const [workouts, setWorkouts] = useState(null);
@@ -13,21 +14,17 @@ function Home() {
           throw Error(response.status);
         }
         const data = await response.json();
-        console.log(data)
         setWorkouts(data);
       } catch (error) {
         console.error("Fetching data failed!", error);
       }
     };
-
     fetchData();
   }, []);
 
   return (
     <div className="home">
-      <h1>
-        
-      </h1>
+      
       <div className="container">
        {
         workouts && workouts.map((workout)=>(
@@ -35,6 +32,7 @@ function Home() {
         ))
        }
       </div>
+      <WorkoutForm/>
     </div>
   );
 }
