@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import WorkoutDetail from "../Components/WorkoutDetail";
 import WorkoutForm from "../Components/WorkoutForm";
+import { useWorkoutContext } from "../Context/WorkoutContext";
 
 function Home() {
-  const [workouts, setWorkouts] = useState(null);
 
+  const {workouts , dispatch} = useWorkoutContext();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -13,8 +14,9 @@ function Home() {
         if (!response.ok) {
           throw Error(response.status);
         }
-        const data = await response.json();
-        setWorkouts(data);
+        const json = await response.json();
+
+        dispatch({type:"SET_WORKOUT" , payload:json})
       } catch (error) {
         console.error("Fetching data failed!", error);
       }

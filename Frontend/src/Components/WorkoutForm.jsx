@@ -28,6 +28,7 @@ function WorkoutForm() {
             setReps(0)
             setLoads(0)
             setError("")
+            
         }
 
     }
