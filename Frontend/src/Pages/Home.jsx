@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import WorkoutDetail from "../Components/WorkoutDetail";
 import WorkoutForm from "../Components/WorkoutForm";
-import { useWorkoutContext } from "../Context/WorkoutContext";
+import { useWorkoutContext } from "../Hooks/useWorkoutContext";
 
 function Home() {
 
   const {workouts , dispatch} = useWorkoutContext();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -15,14 +16,14 @@ function Home() {
           throw Error(response.status);
         }
         const json = await response.json();
-
-        dispatch({type:"SET_WORKOUT" , payload:json})
+        console.log(json)
+        dispatch({type:"SET_WORKOUTS" , payload:json})
       } catch (error) {
         console.error("Fetching data failed!", error);
       }
     };
     fetchData();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="home">
@@ -30,7 +31,7 @@ function Home() {
       <div className="container">
        {
         workouts && workouts.map((workout)=>(
-          <p key={workouts._id}><WorkoutDetail workout={workout}/></p>
+          <p key={workout._id}><WorkoutDetail workout={workout}/></p>
         ))
        }
       </div>

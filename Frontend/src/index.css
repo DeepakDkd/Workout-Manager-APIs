@@ -32,13 +32,13 @@ header {
 
 footer {
   width: 100%;
-  height: 70px;
-  /* position: fixed; */
+  height: 60px;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* bottom: 0; */
+  bottom: 0;
   background-color: rgba(82, 149, 208, 0.788);
   color: rgb(140, 139, 139);
 }
@@ -81,13 +81,14 @@ footer {
 
 .home {
   width: 100%;
-  height: 100%;
+  height: fit-content;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   padding: 10px;
+  padding-bottom: 65px;
   gap:  10px;
-
+  border: 1px solid;
 }
 
 .home h1 {
@@ -96,20 +97,19 @@ footer {
 
 .home .container {
   width: 400px;
-  /* height: 400px; */
+  height: fit-contentz  ;
   border-radius: 20px;
   padding: 10px;
-  /* border: 1px solid rgba(245, 239, 239, 0.577); */
-
+  border: 1px solid rgba(245, 239, 239, 0.577);
+  
   display: flex;
   justify-content: start;
   /* align-items: center; */
   flex-direction: column;
-  border: 1px solid;
 }
 .workout-details {
   width: 100%;
-  height: fit-content;
+  height: 100%;
   padding: 10px;
   font-size: large;
   background-color: rgba(88, 134, 171, 0.236);
