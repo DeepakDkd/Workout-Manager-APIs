@@ -15,6 +15,7 @@ function Home() {
           throw Error(response.status);
         }
         const json = await response.json();
+        
         dispatch({ type: "SET_WORKOUTS", payload: json });
       } catch (error) {
         console.error("Fetching data failed!", error);

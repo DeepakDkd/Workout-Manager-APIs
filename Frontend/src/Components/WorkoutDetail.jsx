@@ -5,13 +5,11 @@ function WorkoutDetail({ workout }) {
   const { dispatch } = useWorkoutContext();
   const handleDelete = async () => {
     const response = await fetch(
-      "http://localhost:8089/api/workouts" + workout._id,
+      "http://localhost:8089/api/workouts/" + workout._id,
       { method: "DELETE" }
     );
 
     const json = await response.json();
-    console.log(json);
-    console.log(response.ok);
 
     if (response.ok) {
       dispatch({ type: "DELETE_WORKOUT", payload: json });
