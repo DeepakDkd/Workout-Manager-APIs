@@ -6,8 +6,9 @@ function WorkoutForm() {
     const [reps , setReps] = useState("")
     const [loads , setLoads] = useState("")
     const [error , setError] = useState('')
-
+    
     const {dispatch} = useWorkoutContext()
+    
     const handleSubmit = async(e)=>{
         e.preventDefault();
         const workout = {title , reps , loads}

@@ -39,8 +39,9 @@ footer {
   align-items: center;
   flex-direction: column;
   bottom: 0;
-  background-color: rgba(82, 149, 208, 0.788);
+  background-color: rgba(128, 165, 198, 0.788);
   color: rgb(140, 139, 139);
+  backdrop-filter: blur(2px);
 }
 
 .contact {
@@ -115,9 +116,15 @@ footer {
   background-color: rgba(88, 134, 171, 0.236);
   margin-bottom: 2px;
   border-radius: 20px;
+  position: relative;
 }
 .workout-details h2{
   color:rgb(2, 2, 2);
+}
+.workout-details i{
+  position: absolute;
+  right: 15px;
+  top: 40%;
 }
 .date{
   font-size: small;
