@@ -89,7 +89,6 @@ footer {
   padding: 10px;
   padding-bottom: 65px;
   gap:  10px;
-  border: 1px solid;
 }
 
 .home h1 {
@@ -101,11 +100,9 @@ footer {
   height: fit-contentz  ;
   border-radius: 20px;
   padding: 10px;
-  border: 1px solid rgba(245, 239, 239, 0.577);
   
   display: flex;
   justify-content: start;
-  /* align-items: center; */
   flex-direction: column;
 }
 .workout-details {
@@ -134,6 +131,7 @@ footer {
   width: 400px;
   border-radius: 20px;
   padding: 20px;
+  margin-top: 50px;
   box-shadow: rgb(73, 148, 167) 0px 0px 30px 10px;
   display: flex;
   flex-direction: column;
@@ -146,7 +144,8 @@ footer {
   font-size: medium;
   font-weight: bold;
   outline: none;
-  border: none;
+  /* border: none; */
+  border-radius: 5px;
 }
 .workout-form button{
   width: 100px;
@@ -160,4 +159,5 @@ footer {
 }
 .error{
   color: rgba(203, 46, 46, 0.608);
+  border: 1px solid red;
 }
