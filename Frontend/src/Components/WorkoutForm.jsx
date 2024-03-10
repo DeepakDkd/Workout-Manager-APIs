@@ -6,15 +6,10 @@ function WorkoutForm() {
     const [title , setTitle] = useState('')
     const [reps , setReps] = useState("")
     const [loads , setLoads] = useState("")
-    const [error , setError] = useState('')
     const [emptyFields , setEmptyFields] = useState([])
     
     const {dispatch} = useWorkoutContext()
-    
-    //  if(error){
-
-    //      toast.error(error)
-    //  } 
+   
 
     const handleSubmit = async(e)=>{
         e.preventDefault();
@@ -38,8 +33,8 @@ function WorkoutForm() {
             setTitle("")
             setReps("")
             setLoads("")
-            setError(null)
             setEmptyFields([])
+            toast.success("new workout added")
             console.log("new workout added" , json)
             dispatch({type:"CREATE_WORKOUT", payload: json})
 
@@ -55,7 +50,7 @@ function WorkoutForm() {
         <label>
             <b>Workout Title:</b>
         </label>
-            <input type='text' value={title} onChange={e => {setTitle(e.target.value); setError()}}
+            <input type='text' value={title} onChange={e => setTitle(e.target.value)}
             className={emptyFields.includes("title") ? "error" : ""}
             
             />
@@ -66,7 +61,7 @@ function WorkoutForm() {
         <input  
             type='number'  
             value={loads}
-            onChange={e => {setLoads(e.target.valueAsNumber); setError(null)}}
+            onChange={e => setLoads(e.target.valueAsNumber)}
             className={emptyFields.includes("loads") ? "error" : ""}
 
         />
@@ -76,7 +71,7 @@ function WorkoutForm() {
         <input 
             type='number'  
             value={reps}  
-            onChange={e => {setReps(e.target.valueAsNumber); setError(null)}}
+            onChange={e => setReps(e.target.valueAsNumber)}
             className={emptyFields.includes("reps") ? "error" : ""}
 
         /><br/>

@@ -68,10 +68,12 @@ footer {
 /* Set styles for copyright information */
 .copyright {
   text-align: center;
+  color: rgb(44, 43, 43);
+
 }
 
 .copyright a {
-  color: rgb(121, 120, 120);
+  color: rgb(44, 43, 43);
   text-decoration: none;
   font-weight: bold;
 }
@@ -122,6 +124,7 @@ footer {
   position: absolute;
   right: 15px;
   top: 40%;
+  cursor: pointer;
 }
 .date{
   font-size: small;
@@ -156,8 +159,9 @@ footer {
   background-color: rgb(75, 142, 75);
   color: white;
   font-weight: bold;
+  cursor: pointer;
 }
 .error{
-  color: rgba(203, 46, 46, 0.608);
+  color: rgba(0, 0, 0, 0.973);
   border: 1px solid red;
 }
