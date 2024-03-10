@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useWorkoutContext } from '../Hooks/useWorkoutContext'
+import {Toaster , toast} from "react-hot-toast"
 
 function WorkoutForm() {
     const [title , setTitle] = useState('')
@@ -10,6 +11,11 @@ function WorkoutForm() {
     
     const {dispatch} = useWorkoutContext()
     
+    //  if(error){
+
+    //      toast.error(error)
+    //  } 
+
     const handleSubmit = async(e)=>{
         e.preventDefault();
         const workout = {title , reps , loads}
@@ -23,10 +29,9 @@ function WorkoutForm() {
         })
 
         const json = await response.json()
-        console.log(json)
 
         if(!response.ok){
-            setError(json.error)
+            toast.error(json.error)
             setEmptyFields(json.emptyFields)
         }
         if(response.ok){
@@ -42,23 +47,26 @@ function WorkoutForm() {
 
     }
   return (
+    <>
+    <Toaster  position="top-center"/>
+
     <form className="workout-form" onSubmit={handleSubmit}>
         <h2>Add a workout</h2> 
         <label>
             <b>Workout Title:</b>
         </label>
-            <input type='text' value={title} onChange={e => setTitle(e.target.value)}
+            <input type='text' value={title} onChange={e => {setTitle(e.target.value); setError()}}
             className={emptyFields.includes("title") ? "error" : ""}
             
             />
         
         <label>
-          <b>  Load (in):</b>
+          <b>  Load (in kg):</b>
         </label>
         <input  
             type='number'  
             value={loads}
-            onChange={e => setLoads(e.target.valueAsNumber)}
+            onChange={e => {setLoads(e.target.valueAsNumber); setError(null)}}
             className={emptyFields.includes("loads") ? "error" : ""}
 
         />
@@ -68,13 +76,15 @@ function WorkoutForm() {
         <input 
             type='number'  
             value={reps}  
-            onChange={e => setReps(e.target.valueAsNumber)}
+            onChange={e => {setReps(e.target.valueAsNumber); setError(null)}}
             className={emptyFields.includes("reps") ? "error" : ""}
 
         /><br/>
         <button>Submit</button>
-        { error && <p className='error'>{error }</p>}
+        
     </form>
+    </>
+
   )
 }
 
