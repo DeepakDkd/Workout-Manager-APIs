@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+ import React, { useState } from 'react'
 import { useWorkoutContext } from '../Hooks/useWorkoutContext'
 import {Toaster , toast} from "react-hot-toast"
 
@@ -46,7 +46,7 @@ function WorkoutForm() {
     <Toaster  position="top-center"/>
 
     <form className="workout-form" onSubmit={handleSubmit}>
-        <h2>Add a workout</h2> 
+        <h2>Create workout</h2> 
         <label>
             <b>Workout Title:</b>
         </label>

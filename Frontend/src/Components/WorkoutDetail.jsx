@@ -1,6 +1,9 @@
 import React from "react";
 import { useWorkoutContext } from "../Hooks/useWorkoutContext";
 import { Toaster, toast } from "react-hot-toast";
+// date fns
+import { formatDistanceToNow } from "date-fns/formatDistanceToNow";
+
 function WorkoutDetail({ workout }) {
   const { dispatch } = useWorkoutContext();
 
@@ -19,12 +22,8 @@ function WorkoutDetail({ workout }) {
   };
   return (
     <>
-    <Toaster  position="top-center"/>
-      <div
-        className="workout-details"
-        
-        key={workout._id}
-      >
+      <Toaster position="top-center" />
+      <div className="workout-details" key={workout._id}>
         <h2>{workout.title}</h2>
         <p>
           <b>Load (kg):</b> {workout.loads}
@@ -32,7 +31,11 @@ function WorkoutDetail({ workout }) {
         <p>
           <b>Reps :</b> {workout.reps}
         </p>
-        <p className="date">{workout.createdAt.split("T")[0]}</p>
+        <p className="date">
+          {formatDistanceToNow(new Date(workout.createdAt), {
+            addSuffix: true,
+          })}
+        </p>
         <i className="ri-delete-bin-2-line" onClick={handleDelete}></i>
       </div>
     </>

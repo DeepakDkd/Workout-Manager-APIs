@@ -4,7 +4,6 @@ import WorkoutForm from "../Components/WorkoutForm";
 import { useWorkoutContext } from "../Hooks/useWorkoutContext";
 import { motion } from "framer-motion";
 
-
 function Home() {
   const { workouts, dispatch } = useWorkoutContext();
 
@@ -28,6 +27,7 @@ function Home() {
 
   return (
     <div className="home">
+        <WorkoutForm />
       <div className="container">
         {workouts &&
           workouts.map((workout, i) => (
@@ -36,15 +36,13 @@ function Home() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               // whileHover={{ scale: 1.05 }}
               // whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.3 , delay:0.1*i }}
+              transition={{ duration: 0.3, delay: 0.1 * i }}
               key={workout._id}
             >
-              {console.log(i)}
               <WorkoutDetail workout={workout} />
             </motion.div>
           ))}
       </div>
-      <WorkoutForm />
     </div>
   );
 }
