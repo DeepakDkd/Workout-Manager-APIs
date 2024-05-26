@@ -9,7 +9,7 @@ function WorkoutDetail({ workout }) {
 
   const handleDelete = async () => {
     const response = await fetch(
-      "http://localhost:8089/api/workouts/" + workout._id,
+      `${import.meta.env.VITE_DBURL}/api/workouts/` + workout._id,
       { method: "DELETE" }
     );
 

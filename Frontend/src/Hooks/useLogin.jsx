@@ -2,7 +2,7 @@ export const useLogin = async (email, password , setError)=>{
 
     try {
         
-    const data = await fetch('http://localhost:8089/api/user/login', {
+    const data = await fetch(`${import.meta.env.VITE_DBURL}/api/user/login`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"

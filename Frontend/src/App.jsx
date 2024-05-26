@@ -15,8 +15,8 @@ function App() {
   const fetchUser = async() => {
 
   
-    const data = await fetch("http://localhost:8089/api/user/getuser", {
-      method: "GET",
+    const data = await fetch(`${import.meta.env.VITE_DBURL}/api/user/getuser`, {
+      method: "GET",  
       headers: {
         "Content-Type": "application/json",
        "Authorization": `Bearer ${JSON.parse(localStorage.getItem("auth_token"))}`
