@@ -1,7 +1,7 @@
 
 export const useSignup = async(name , email , password , setError)=>{
     try {
-        const data = await fetch(`${import.meta.env.VITE_DBURL}/api/user/signup`,{
+        const data = await fetch(`https://workout-manager-apis.onrender.com/api/user/signup`,{
             method:'POST',
             headers:{
                 'Content-type':'application/json'

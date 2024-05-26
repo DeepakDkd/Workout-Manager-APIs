@@ -10,7 +10,7 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_DBURL}/api/workouts/`,{
+        const response = await fetch(`https://workout-manager-apis.onrender.com/api/workouts/`,{
           method: "GET",  
           headers: {
             "Content-Type": "application/json",

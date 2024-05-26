@@ -15,7 +15,7 @@ function App() {
   const fetchUser = async() => {
 
   
-    const data = await fetch(`${import.meta.env.VITE_DBURL}/api/user/getuser`, {
+    const data = await fetch(`https://workout-manager-apis.onrender.com/api/user/getuser`, {
       method: "GET",  
       headers: {
         "Content-Type": "application/json",
