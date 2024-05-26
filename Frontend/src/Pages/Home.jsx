@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import WorkoutDetail from "../Components/WorkoutDetail";
 import WorkoutForm from "../Components/WorkoutForm";
-import { useWorkoutContext } from "../Hooks/useWorkoutContext";
+import { useWorkoutContext } from "../Context/WorkoutContext"
 import { motion } from "framer-motion";
 
 function Home() {
@@ -34,10 +34,9 @@ function Home() {
             <motion.div
               initial={{ opacity: 0, y: -20, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              // whileHover={{ scale: 1.05 }}
-              // whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.3, delay: 0.1 * i }}
               key={workout._id}
+              className="my-1"
             >
               <WorkoutDetail workout={workout} />
             </motion.div>

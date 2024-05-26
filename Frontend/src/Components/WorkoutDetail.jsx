@@ -1,5 +1,5 @@
 import React from "react";
-import { useWorkoutContext } from "../Hooks/useWorkoutContext";
+import { useWorkoutContext } from  "../Context/WorkoutContext";
 import { Toaster, toast } from "react-hot-toast";
 // date fns
 import { formatDistanceToNow } from "date-fns/formatDistanceToNow";
@@ -23,7 +23,7 @@ function WorkoutDetail({ workout }) {
   return (
     <>
       <Toaster position="top-center" />
-      <div className="workout-details" key={workout._id}>
+      <div className="workout-details" key={workout._id} >
         <h2>{workout.title}</h2>
         <p>
           <b>Load (kg):</b> {workout.loads}

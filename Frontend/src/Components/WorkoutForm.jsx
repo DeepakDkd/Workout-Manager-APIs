@@ -1,5 +1,5 @@
  import React, { useState } from 'react'
-import { useWorkoutContext } from '../Hooks/useWorkoutContext'
+import { useWorkoutContext } from '../Context/WorkoutContext'
 import {Toaster , toast} from "react-hot-toast"
 
 function WorkoutForm() {

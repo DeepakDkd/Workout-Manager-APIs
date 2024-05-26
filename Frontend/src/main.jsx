@@ -5,6 +5,10 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
 import { WorkoutContextProvider } from "./Context/WorkoutContext.jsx";
+import { AuthContextProvider } from "./Context/AuthContext.jsx";
+import Login from "./Pages/Login.jsx";
+import SignUp from "./Pages/SignUp.jsx";
+import RouteProtector from "./RouteProtector/RouteProtector.jsx";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +17,27 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          <RouteProtector authentication={true}>
+            <Home />
+          </RouteProtector>
+        ),
+      },
+      {
+        path: "login",
+        element: (
+          <RouteProtector>
+            <Login />
+          </RouteProtector>
+        ),
+      },
+      {
+        path: "signup",
+        element: (
+          <RouteProtector>
+            <SignUp />
+          </RouteProtector>
+        ),
       },
     ],
   },
@@ -21,8 +45,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <WorkoutContextProvider>
-      <RouterProvider router={router} />
-    </WorkoutContextProvider>
+    <AuthContextProvider>
+      <WorkoutContextProvider>
+        <RouterProvider router={router} />
+      </WorkoutContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>
 );

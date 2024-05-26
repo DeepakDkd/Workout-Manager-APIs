@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
 
 export const WorkoutContext = createContext();
 
@@ -31,4 +31,7 @@ export const WorkoutContextProvider = ({ children }) => {
   );
 }
 
-
+export const useWorkoutContext = ()=>{
+  return useContext(WorkoutContext)
+}
+ 

@@ -1,8 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import router from "./Routes/workouts.js";
+import workouts from "./Routes/workouts.js";
 import mongoose from "mongoose";
+import userRoutes from "./Routes/UserRoutes.js"
 
 dotenv.config();
 
@@ -19,7 +20,8 @@ optionsSuccessStatus: 200,
 preflightContinue: false,
 methods: "GET,HEAD,PUT,PATCH,POST,DELETE",})); //enable CORS for all requests
 
-app.use("/api/workouts", router);//routes
+app.use("/api/workouts", workouts);//routes
+app.use('/api/user', userRoutes)
 
 
 

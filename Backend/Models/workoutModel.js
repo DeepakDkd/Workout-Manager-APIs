@@ -12,7 +12,7 @@ const workoutSchema = new Schema({
         required:true
     },
     loads:{
-        type:Number,
+        type:Number,    
         required:true
     }
 }, { timestamps: true });

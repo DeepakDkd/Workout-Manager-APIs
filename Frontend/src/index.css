@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 * {
   padding: 0;
   margin: 0;
@@ -26,7 +29,7 @@ header {
   height: fit-content;
   background-color: rgba(82, 149, 208, 0.658);
   display: flex;
-  /* justify-content: center; */
+  /* justify-content: center;  */
   align-items: center;
   padding: 10px;
 
@@ -37,7 +40,7 @@ header {
   & h1{
     color: rgb(90, 60, 60);
   }
-
+  
 }
 
 footer {
@@ -178,6 +181,99 @@ footer {
   color: rgba(0, 0, 0, 0.973);
   border: 1px solid red;
 }
+
+
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.login-page h1 {
+  margin-bottom: 30px;
+}
+
+.login-page label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.login-page input[type="text"],
+.login-page input[type="password"] {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.login-page button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.login-page button[type="submit"]:hover {
+  background-color: #45a049;
+}
+.login-page p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-page a {
+  color: #4CAF50;
+}
+
+
+.signup-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.signup-page h1 {
+  margin-bottom: 30px;
+}
+
+.signup-page label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.signup-page input[type="text"],
+.signup-page input[type="email"],
+.signup-page input[type="password"] {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.signup-page button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.signup-page button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.signup-page p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-page a {
+  color: #4CAF50;
+}
+
+
 
 
 @media (max-width:768px) {
