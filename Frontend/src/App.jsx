@@ -39,10 +39,10 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem("auth_token")) {
       if (!user) {
-      fetchUser()
+      fetchUser().then(() => setloader(false))
     }}
 
-    if (!localStorage.getItem('auth_token')) setloader(false)
+    if (!localStorage.getItem('auth_token')) {setloader(false)}
   },[pathname])
 
 
