@@ -10,7 +10,13 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8089/api/workouts/");
+        const response = await fetch("http://localhost:8089/api/workouts/",{
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            'Authorization':`Bearer ${JSON.parse(localStorage.getItem('auth_token'))}`
+            },
+        });
 
         if (!response.ok) {
           throw Error(response.status);

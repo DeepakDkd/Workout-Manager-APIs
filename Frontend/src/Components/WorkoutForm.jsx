@@ -5,7 +5,7 @@ import {Toaster , toast} from "react-hot-toast"
 function WorkoutForm() {
     const [title , setTitle] = useState('')
     const [reps , setReps] = useState("")
-    const [loads , setLoads] = useState("")
+    const [loads , setLoads] = useState("") 
     const [emptyFields , setEmptyFields] = useState([])
     
     const {dispatch} = useWorkoutContext()
@@ -19,7 +19,8 @@ function WorkoutForm() {
             method : "POST",
             body : JSON.stringify(workout),
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                'Authorization':`Bearer ${JSON.parse(localStorage.getItem('auth_token'))}`
             }
         })
 

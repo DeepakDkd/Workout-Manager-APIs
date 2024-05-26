@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
+import { workout } from "../../../Backend/Models/workoutModel";
 
 export const WorkoutContext = createContext();
 
@@ -15,7 +16,11 @@ export const WorkoutReducer = (state, action) => {
     case "DELETE_WORKOUT":
       return {
         workouts: state.workouts.filter((w)=> w._id != action.payload._id)
-      }
+      };
+      case "CLEAR_CONTEXT":
+        return{
+          workouts:[]
+        }
     default:
       return state;
   }

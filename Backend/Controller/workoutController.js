@@ -1,10 +1,15 @@
 import mongoose from "mongoose";
 import { workout } from "../Models/workoutModel.js";
+import { verifyToken } from "../Utils/TokenGenerator.js";
 
 //get all workout
 const getWorkouts = async (req, res) => {
   try {
-    const workouts = await workout.find({}).sort({ createdAt: -1 });
+    const token = req?.headers?.authorization?.split( " " )[1];
+     
+    const {_id} = verifyToken(token)
+
+    const workouts = await workout.find({createdBy:_id}).sort({ createdAt: -1 });
     if (workouts.length === 0) {
       return res.status(404).json({ message: "No workouts found" });
     }
@@ -34,6 +39,11 @@ const getWorkout = async (req, res) => {
 // post a workout
 const postWorkout = async (req, res) => {
   try {
+
+    const token = req?.headers?.authorization?.split( " " )[1];
+     
+    const {_id} = verifyToken(token)
+
     const { title, loads, reps } = req.body;
     let emptyFields = []
     if(!title){
@@ -48,7 +58,7 @@ const postWorkout = async (req, res) => {
     if(emptyFields.length > 0 ){
       return res.status(400).json({ error : "Please fill in all the fields", emptyFields})
     }
-    const newWorkout = await workout.create({ title, loads, reps });
+    const newWorkout = await workout.create({ title, loads, reps ,createdBy:_id });
     res.status(201).json(newWorkout);
   } catch (error) {
     res.status(500).json({ error: error.message });
