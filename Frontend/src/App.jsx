@@ -1,9 +1,8 @@
+import React, { useEffect } from "react";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import { Outlet } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
 import { useAuth } from "./Context/AuthContext";
-import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 function App() {
   const { user,dispatch} = useAuth();
