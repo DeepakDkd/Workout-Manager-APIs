@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
-
+if (typeof window === 'undefined') {
+    const mongoose = require('mongoose');
+  
 const Schema = mongoose?.Schema;
 
 const workoutSchema = new Schema({
